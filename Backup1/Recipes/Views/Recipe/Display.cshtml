@@ -1,0 +1,26 @@
+﻿<script type="text/javascript">
+    function populate() {
+        $.getJSON("/api/recipe/applecrisp", function(result){
+            debugger;
+
+            $("#Utensils").text(result.Utensils);
+            $("#Instructions").text(result.RecipeInstructions);
+            $("#Ingredients").text(result.Ingredients);
+            $("#RecipeTitle").text(result.RecipeTitle);
+            $("#OvenHeat").text(result.OvenHeat);
+            $("#Degrees").text(result.GetDegree());
+        });
+    }
+</script>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <span id="RecipeTitle"></span>
+    <p>Pre heat oven to: <span id="OvenHeat"></span>&#176</p>
+    <p>Utensils needded: <span id="Utensils"></span></p>
+    <p>Instructions: <span id="Instructions"></span></p>
+    <p>Ingredients: <span id="Ingredients"></span></p>
+
+    <button onclick="populate()">Populate</button>
+</body>

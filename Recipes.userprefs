@@ -1,0 +1,22 @@
+﻿<Properties StartupConfiguration="{3217702B-D977-441B-A748-10DCCF9922AC}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Recipes/Content/RecipePage.css">
+    <Files>
+      <File FileName="Recipes/Views/Recipe/Display.cshtml" Line="19" Column="41" />
+      <File FileName="Recipes/Content/RecipePage.css" Line="150" Column="29" />
+      <File FileName="Recipes/Controllers/RecipeController.cs" Line="30" Column="9" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="PortControl" Name="PortControl">
+      <Items>
+        <StartupItem ItemId="{3217702B-D977-441B-A748-10DCCF9922AC}" ItemName="Recipes" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.ItemProperties.Recipes PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

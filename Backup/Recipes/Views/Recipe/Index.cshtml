@@ -1,0 +1,33 @@
+﻿
+<html>
+    <head>
+      <link rel="stylesheet" href="Content/HomePage.css">
+    </head>
+    <body>
+        <h2>Recipes</h2>
+
+        <p id="demo">It's Recipe Time Binch</p>
+
+        <button onclick= "document.getElementById('demo').innerHTML = GetAllEmployees()">Button Works?</button>
+
+    </body>
+</html>
+<script type="text/javascript">
+    function GetAllEmployees() {       
+        return 'Button Works Still!';
+    }
+
+    $("#btn1").click(function () {
+      $.ajax({
+        url: "/api/RecipeApi",
+        datatype: "text",
+        type: "POST",
+        success: function (data) {
+          $('#testarea').html("All OK");
+        },
+        error: function () {
+          $("#testarea").html("ERROR");
+        }
+      });
+    });
+</script>
