@@ -1,0 +1,84 @@
+﻿@model Recipes.Models.Recipe
+<html>
+<head>
+    <link rel="stylesheet" href="/Content/RecipePage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+    <body>
+        <span class="tools-icon" onclick="openNav()">&#9776; Tools</span>
+        <div class="recipe-page-body">
+            <h1 id="RecipeTitle">@Model.RecipeTitle</h1>
+            <div class="oven-heat">
+                
+                <h2>Preheat the oven to: @Model.OvenHeat &#176
+                    @if (Model.IsCelsius) 
+                    {
+                        <span>Celsius</span>
+                    } 
+                    else{
+                        <span>Fahrenheit</span>
+                    }
+                </h2>
+            </div>
+            <h2 class="utensils" >Utensils needded: <span class="utensils utensil-list"></span> </h2>
+
+
+            <div class="ingredients">
+                <h2>Ingredients:</h2>
+                <br>
+                <ul>
+                    @foreach (var ingredient in Model.Ingredients)
+                    {
+                        <li>@ingredient.ToString()</li>
+                    }
+                </ul>
+            </div>
+            <div class="instructions">
+                <h2 >Instructions: </h2>
+                <p>@Model.RecipeInstructions</p>
+            </div>
+        </div>
+        
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="tool temperature-tool">
+                    <label>Temperature:</label>
+                    <label class="switch toggle-temperature">
+                        <input type="checkbox"/>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="tool scale-tool">
+                    <label for="scale">Scale:</label>
+                    <input type="text" name="scale" >
+                </div>
+
+        </div>
+    </body>
+</html>
+<script type="text/javascript">
+    $(function() {
+        var list = @Html.Raw(Json.Encode(Model.Utensils));
+        var listAsString = [];
+        for (i = 0; i < list.length; i++) {
+            var item = list[i];
+            listAsString[i] = " " + item.UtensilName;
+        }
+    
+        $(".utensil-list").text(listAsString.join());
+
+    });
+
+    function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("recipe-page-body").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("recipe-page-body").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+    }
+
+</script>

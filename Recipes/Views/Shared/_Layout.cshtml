@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Loveday and Lewis Family Recipes</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container body-content">
+        <header class="navbar navbar-inverse navbar-fixed-top">
+            <ul>
+              <li><a class="active" href="/Recipe">Home</a></li>
+              <li><a href="/Recipe/Display">Apple Crisp</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+        </header>
+            
+        @RenderBody()
+
+        <footer>
+            <hr/>
+            <p>&copy; @DateTime.Now.Year - A Jack Wilkin Application</p>
+        </footer>
+    </div>
+</body>
+</html>

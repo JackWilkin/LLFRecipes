@@ -1,0 +1,28 @@
+﻿h2 {
+    color: white;
+    font-family: verdana;
+    font-size: 300%;
+}
+
+p {
+    color: gray;
+    font-family: verdana;  
+}
+
+body {
+    background-image: url(/Content/Images/pancake.jpeg);   
+}
+
+.home-page-body {
+    min-width: 320px;
+    width: 50%;
+    display: inline-block;
+    padding: 20px;
+    float: left;
+}
+
+button {
+    background-color: grey;
+    color: black;
+    border-color: grey;
+}

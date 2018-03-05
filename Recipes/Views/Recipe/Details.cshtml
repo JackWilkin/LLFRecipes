@@ -1,0 +1,50 @@
+﻿@model Recipes.Models.Recipe
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Recipe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RecipeTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecipeTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OvenHeat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OvenHeat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsCelsius)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsCelsius)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecipeInstructions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecipeInstructions)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RecipeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,24 @@
+﻿
+<html>
+    <head>
+      <link rel="stylesheet" href="Content/HomePage.css">
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+        <div class="home-page-body">
+            <h2>Loveday and Lewis Family Recipes</h2>
+
+            <p>Enjoy <span class="underline">all</span> the recipes from both families all in one location!</p>
+            <p>Today&#39s Recipe is <span id="title"></span></p>
+
+            <button id="api" onclick= "apiCheck()">api check</button>
+        </div>
+</html>
+<script type="text/javascript">
+
+    function apiCheck() {
+        $.getJSON("/api/recipe/applecrisp", function(result){
+            $("#title").text(result.RecipeTitle);
+        });
+    }
+</script>
