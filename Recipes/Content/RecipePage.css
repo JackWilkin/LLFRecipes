@@ -73,14 +73,18 @@ body {
     padding-top: 60px
 }
 
-.sidenav .tool {
-    padding: 8px 8px 8px 15px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
-}
+    .sidenav .tool {
+        padding: 8px 8px 8px 15px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+        background-color: darkgray;
+        border-color: black;
+        border-style: solid;
+        border-width: 5px 10px;
+    }
 
     .sidenav tool:hover {
         color: #f1f1f1
@@ -99,8 +103,8 @@ body {
 .switch {
     position: relative;
     display: inline-block;
-    width: 110px;
-    height: 25px;
+    width: 95px;
+    height: 25px
 }
 
     .switch input {
@@ -142,9 +146,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(87px);
-    -ms-transform: translateX(87px);
-    transform: translateX(87px);
+    -webkit-transform: translateX(72px);
+    -ms-transform: translateX(72px);
+    transform: translateX(72px);
 }
 
 .slider:after {
