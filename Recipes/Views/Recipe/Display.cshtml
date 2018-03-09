@@ -51,20 +51,22 @@
                 <div class="tool scale-tool">
                     <label for="scale">Scale:</label>
                     <form>
-                      <label class="radio-button">half
-                          <input type="radio" checked="checked" name="radio">
+                      <label class="radio-button">1/2
+                          <input type="radio" checked="checked" name="radio" value="half">
                           <span class="checkmark"></span>
                       </label>
-                      <label class="radio-button">double
-                          <input type="radio" name="radio">
+                      <label class="radio-button">2
+                          <input type="radio" name="radio" value="double">
                           <span class="checkmark"></span>
                       </label>
-                      <label class="radio-button">custom
-                          <input type="radio" name="radio">
+                      <label class="radio-button">
+                          <span id="scale-custom-label">Custom</span>
+                          <input type="radio" name="radio" value="custom">
                           <span class="checkmark"></span>
+                          <input id="scale-input" type="text" name="scale" >
                       </label>
                     </form> 
-                    <input type="text" name="scale" >
+
                 </div>
 
         </div>
@@ -80,19 +82,46 @@
         }
     
         $(".utensil-list").text(listAsString.join());
+       
 
     });
 
     function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("recipe-page-body").style.marginLeft = "250px";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("recipe-page-body").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
     }
 
     function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("recipe-page-body").style.marginLeft= "0";
-    document.body.style.backgroundColor = "white";
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("recipe-page-body").style.marginLeft= "0";
+        document.body.style.backgroundColor = "white";
     }
+
+    function customScale() {
+        var x = document.getElementById("scale-input");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    $('input:radio[name="radio"]').change(
+        function(){
+            x = document.getElementById("scale-input");
+
+            if($(this).val() == "custom") {
+                $("#scale-input").show();
+                $("#scale-custom-label").text("");
+
+            }
+            else {
+                $("#scale-input").hide();
+                $("#scale-custom-label").text("Custom");
+
+            }
+    });
+   
 
 </script>

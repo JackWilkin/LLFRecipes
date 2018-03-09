@@ -172,7 +172,7 @@ input:checked + .slider:after {
 .radio-button {
     display: inline;
     position: relative;
-    padding-left: 22px;
+    padding-left: 30px;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 18px;
@@ -230,4 +230,9 @@ input:checked + .slider:after {
     height: 6px;
     border-radius: 50%;
     background: white
+}
+
+#scale-input {
+    display: none;
+    width: 40px;
 }
