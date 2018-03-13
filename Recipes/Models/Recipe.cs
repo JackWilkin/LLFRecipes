@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Script.Serialization;
+using Recipes.Data;
 
 namespace Recipes.Models
 {
@@ -40,6 +41,11 @@ namespace Recipes.Models
         {
             get { return this.recipeTitle; }
             private set { this.recipeTitle = value; }
+        }
+
+        public static explicit operator List<object>(Recipe v)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Ingredient> Ingredients

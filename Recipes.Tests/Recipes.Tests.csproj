@@ -84,12 +84,14 @@
   <ItemGroup>
     <Compile Include="Controllers\Test.cs" />
     <Compile Include="Model\RecipeTest.cs" />
+    <Compile Include="Database\DBConnectionTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
+    <Folder Include="Database\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

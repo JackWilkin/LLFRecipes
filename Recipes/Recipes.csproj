@@ -91,6 +91,10 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.IO.Compression" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -121,6 +125,9 @@
     <Compile Include="Controllers\RecipeApiController.cs" />
     <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="Data\RecipeContext.cs" />
+    <Compile Include="Data\RestClient.cs" />
+    <Compile Include="Data\IRecipeDBManager.cs" />
+    <Compile Include="Data\DataUtils.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
