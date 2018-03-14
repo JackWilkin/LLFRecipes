@@ -11,22 +11,39 @@ namespace Recipes.Tests.Database
     {
 
         [Test]
-        public void TestGetAllRecipes()
+        public void TestGetFullListRecipes()
         {
-            string recipes = RecipeContext.GetAllRecipes();
-            Assert.AreEqual(recipes, "[{\"_id\":\"5aa5a36e5eff707300007bed\",\"RecipeTitle\":\"Apple " +
-                            "Crisp\",\"OvenHeat\":350,\"RecipeId\":0,\"IsCelsius\":false,\"RecipeInstructions\"" +
-                            ":\"Whisk it all in a bowl\"},{\"_id\":\"5aa5a3c85eff707300007bf0\",\"RecipeTitle\":\"Chocolate " +
-                            "Cake\",\"OvenHeat\":170,\"RecipeId\":1,\"IsCelsius\":true,\"RecipeInstructions\"" +
-                            ":\"Put it in a bowl, and whisk it\"}]");
+            IRecipeDBManager db = new RecipeContext();
+            List<Recipe> recipes = db.GetFullListRecipes();
+
+            Assert.NotNull(recipes);
+            Assert.AreEqual(recipes.Count, 2);
         }
 
         [Test]
-        public void TestJsonListToRecipeList()
+        public void TestGetRecipeById()
         {
-            string recipes = RecipeContext.GetAllRecipes();
+            IRecipeDBManager db = new RecipeContext();
+            Recipe recipe = db.GetRecipeById(1);
 
-            Assert.AreEqual(RecipeContext.JsonListToRecipeList(recipes), new List<Recipe>());
+            Assert.NotNull(recipe);
+            Assert.AreEqual(recipe.RecipeId, 1);
+
+            Recipe notARecipe = db.GetRecipeById(-1);
+            Assert.IsNull(notARecipe);
+        }
+
+        [Test]
+        public void TestGetRecipeByTitle()
+        {
+            IRecipeDBManager db = new RecipeContext();
+            Recipe recipe = db.GetRecipeByTitle("Apple Crisp");
+
+            Assert.NotNull(recipe);
+            Assert.AreEqual(recipe.RecipeTitle, "Apple Crisp");
+
+            Recipe notARecipe = db.GetRecipeByTitle("Not a recipe name");
+            Assert.IsNull(notARecipe);
         }
     }
 }

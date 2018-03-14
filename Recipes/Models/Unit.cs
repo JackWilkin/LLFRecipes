@@ -10,7 +10,7 @@ namespace Recipes.Models
     public static class UnitUtils {
 
         //private final String displayName;
-        internal static string UnitName(Unit unit)
+        public static string UnitName(Unit unit)
         {
             switch (unit)
             {

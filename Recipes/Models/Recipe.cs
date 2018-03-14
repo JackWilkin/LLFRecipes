@@ -51,13 +51,13 @@ namespace Recipes.Models
         public List<Ingredient> Ingredients
         {
             get { return this.ingredients; }
-            private set { this.ingredients = value; }
+            set { this.ingredients = value; }
         }
 
         public List<Utensil> Utensils
         {
             get { return this.utensils; }
-            private set { this.utensils = value; }
+            set { this.utensils = value; }
         }
 
         public int OvenHeat

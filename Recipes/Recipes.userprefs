@@ -1,12 +1,20 @@
 ﻿<Properties StartupConfiguration="{3217702B-D977-441B-A748-10DCCF9922AC}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Data/RecipeContext.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Data/IRecipeDBManager.cs" Line="13" Column="19" />
-      <File FileName="Data/RecipeContext.cs" Line="18" Column="10" />
-      <File FileName="Models/Recipe.cs" Line="170" Column="10" />
-      <File FileName="Controllers/RecipeApiController.cs" Line="27" Column="27" />
-      <File FileName="../Recipes.Tests/Database/DBConnectionTests.cs" Line="29" Column="92" />
-      <File FileName="Data/DataUtils.cs" Line="1" Column="1" />
+      <File FileName="Data/IRecipeDBManager.cs" Line="13" Column="16" />
+      <File FileName="Data/RecipeContext.cs" Line="32" Column="1" />
+      <File FileName="Models/Recipe.cs" Line="57" Column="23" />
+      <File FileName="Controllers/RecipeApiController.cs" Line="13" Column="6" />
+      <File FileName="../Recipes.Tests/Database/DBConnectionTests.cs" Line="17" Column="1" />
+      <File FileName="Data/DataUtils.cs" Line="9" Column="41" />
+      <File FileName="Controllers/RecipeController.cs" Line="33" Column="1" />
+      <File FileName="Views/Recipe/Display.cshtml" Line="19" Column="41" />
+      <File FileName="Views/Recipe/Home.cshtml" Line="1" Column="1" />
+      <File FileName="Views/_ViewStart.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Recipe/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Shared/_Layout.cshtml" Line="14" Column="54" />
+      <File FileName="Models/Ingredient.cs" Line="36" Column="44" />
+      <File FileName="Models/Unit.cs" Line="8" Column="5" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
@@ -17,7 +25,7 @@
                 <Node name="Tests" expanded="True">
                   <Node name="Database" expanded="True">
                     <Node name="DBConnectionTests" expanded="True">
-                      <Node name="TestJsonListToRecipeList" selected="True" />
+                      <Node name="TestGetRecipeById" selected="True" />
                     </Node>
                   </Node>
                 </Node>
@@ -30,7 +38,10 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/wilkin/Projects/Coding_Projects/LLFRecipes/Recipes.Tests/Database/DBConnectionTests.cs" relfile=".Tests/Database/DBConnectionTests.cs" line="17" column="1" />
+      <Breakpoint file="/Users/wilkin/Projects/Coding_Projects/LLFRecipes/Recipes/Data/RecipeContext.cs" relfile="Data/RecipeContext.cs" line="26" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

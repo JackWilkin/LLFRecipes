@@ -24,6 +24,22 @@ namespace Recipes.Models
         }
         public String Unit {
             get { return UnitUtils.UnitName(this.unit); }
+            set { 
+                switch(value.ToLower()) {
+                    case "self":
+                        this.unit = Models.Unit.Self;
+                        break;
+                    case "cup":
+                        this.unit = Models.Unit.Cup;
+                        break;
+                    case "tbs":
+                        this.unit = Models.Unit.Tbs;
+                        break;
+                    case "tsp":
+                        this.unit = Models.Unit.tsp;
+                        break;
+                }
+            }
         }
 
         public Ingredient(int ingredientId, String ingredientName, double quantity, Unit unit)

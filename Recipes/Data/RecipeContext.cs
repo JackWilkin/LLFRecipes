@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using Recipes.Models;
@@ -10,31 +11,68 @@ namespace Recipes.Data
 
         public static string Get(string uri)
         {
-            string endPoint = uri;
-            var client = new RestClient(endPoint);
+            var client = new RestClient(uri);
             var json = client.MakeRequest();
 
             return json;
         }
 
-        public static string GetAllRecipes() {
-            return Get(DataUtils.DB_ROOT_ADDRESS + "recipe");
-        }
-
-        List<Recipe> GetFullListRecipes() {
-            string recipeList = GetAllRecipes();
+        public List<Recipe> GetFullListRecipes() {
+            string recipeList = Get(DataUtils.DB_ROOT_ADDRESS + "recipe");
             return DataUtils.JsonToList<Recipe>(recipeList);
         }
 
-        Recipe GetListRecipeById(int recipeId) {
-            return Get("https://llfrecipes-6c4b.restdb.io/rest/recipe?q={%22RecipeId%22:1}");
+        public Recipe GetRecipeById(int recipeId) {
+            string recipeQuery = DataUtils.DB_ROOT_ADDRESS + "recipe?q={\"RecipeId\":"+recipeId+"}";
+            string recipeListJson = Get(recipeQuery);
+            List<Recipe> recipeAsList = DataUtils.JsonToList<Recipe>(recipeListJson);
+
+            string ingredientQuery = DataUtils.DB_ROOT_ADDRESS + "ingredient?q={\"RecipeId\":"+recipeId+"}";
+            string ingredientListJson = Get(ingredientQuery);
+            string ingredientListJsonParsable = ingredientListJson.Replace("[\"", "\"").Replace("\"]", "\"");                                         
+            List<Ingredient> ingredientsAsList = DataUtils.JsonToList<Ingredient>(ingredientListJsonParsable);
+
+            if (recipeAsList.Count > 1)
+            {
+                throw new Exception("There are more than one recipe with that RecipeId");
+            }
+            else if (recipeAsList.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                recipeAsList[0].Ingredients = ingredientsAsList;
+                recipeAsList[0].Utensils = new List<Utensil>();
+                return recipeAsList[0];
+            }
         }
 
-        Recipe GetListRecipeByTitle(string recipeTitle) {
-            return Get("https://llfrecipes-6c4b.restdb.io/rest/recipe");
+        public Recipe GetRecipeByTitle(string recipeTitle) {
+            string queryString = DataUtils.DB_ROOT_ADDRESS + "recipe?q={\"RecipeTitle\":\""+recipeTitle + "\"}";
+            string recipeListJson = Get(queryString);
+            List<Recipe> recipeAsList = DataUtils.JsonToList<Recipe>(recipeListJson);
+
+            if (recipeAsList.Count > 1)
+            {
+                throw new Exception("There are more than one recipe with that RecipeTitleS");
+            }
+            else if (recipeAsList.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return recipeAsList[0];
+            }
         }
+
 
         ///////////////////Private Methods//////////////////
+
+
+
+
 
     }
 }

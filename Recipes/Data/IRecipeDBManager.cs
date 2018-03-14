@@ -11,5 +11,6 @@ namespace Recipes.Data
         Recipe GetRecipeById(int recipeId);
 
         Recipe GetRecipeByTitle(string recipeTitle);
+
     }
 }
