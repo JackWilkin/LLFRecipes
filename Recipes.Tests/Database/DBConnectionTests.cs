@@ -30,6 +30,14 @@ namespace Recipes.Tests.Database
             Assert.NotNull(recipe.Ingredients);
             Assert.NotNull(recipe.Utensils);
             Assert.AreEqual(recipe.RecipeId, 1);
+            Assert.AreEqual(recipe.Utensils.Count, 0);
+            Assert.AreEqual(recipe.Ingredients.Count, 4);
+
+            recipe = db.GetRecipeById(0);
+            Assert.NotNull(recipe);
+            Assert.NotNull(recipe.Ingredients);
+            Assert.NotNull(recipe.Utensils);
+            Assert.AreEqual(recipe.RecipeId, 0);
             Assert.AreEqual(recipe.Utensils.Count, 2);
             Assert.AreEqual(recipe.Ingredients.Count, 4);
 

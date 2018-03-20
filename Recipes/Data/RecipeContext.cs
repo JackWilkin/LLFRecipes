@@ -32,9 +32,13 @@ namespace Recipes.Data
 
             string toolsQuery = DataUtils.DB_ROOT_ADDRESS + "tools?q={\"RecipeId\":" + recipeId + "}&h={\"$fields\":{\"UtensilId\":1}}";
             string utensilsIdsJson = Get(toolsQuery);
-            string utensilsQuery = DataUtils.DB_ROOT_ADDRESS + "utensil?q={\"$or\":" + utensilsIdsJson + "}";
-            string utensilLisstJson = Get(utensilsQuery);
-            List<Utensil> utensilsAsList = DataUtils.JsonToList<Utensil>(utensilLisstJson);
+            List<Utensil> utensilsAsList = new List<Utensil>();
+
+            if (!utensilsIdsJson.Equals("[]")) {
+                string utensilsQuery = DataUtils.DB_ROOT_ADDRESS + "utensil?q={\"$or\":" + utensilsIdsJson + "}";
+                string utensilLisstJson = Get(utensilsQuery);
+                utensilsAsList = DataUtils.JsonToList<Utensil>(utensilLisstJson);
+            }
            
             if (recipeAsList.Count > 1)
             {
