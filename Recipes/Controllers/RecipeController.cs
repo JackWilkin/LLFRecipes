@@ -5,16 +5,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-//using Recipes.Data;
+using Recipes.Data;
 using Recipes.Models;
 
 namespace Recipes.Controllers
 {
     public class RecipeController : Controller
     {
-        //private RecipeContext db = new RecipeContext();
-
-        
         // GET: Recipe
         public ActionResult Index()
         {
@@ -29,9 +26,11 @@ namespace Recipes.Controllers
         }
 
         // GET: /Recipe/Display/
-        public ActionResult Display()
+        public ActionResult Display(int recipeId)
         {
-            return View(Recipe.AppleCrisp());
+            IRecipeDBManager db = new RecipeContext();
+            Recipe recipe = db.GetRecipeById(recipeId);
+            return View(recipe);
         }
     }
 }
