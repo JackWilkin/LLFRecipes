@@ -43,11 +43,6 @@ namespace Recipes.Models
             private set { this.recipeTitle = value; }
         }
 
-        public static explicit operator List<object>(Recipe v)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Ingredient> Ingredients
         {
             get { return this.ingredients; }
@@ -76,6 +71,32 @@ namespace Recipes.Models
         {
             get { return this.recipeInstructions; }
             private set { this.recipeInstructions = value; }
+        }
+
+        public int Fahrenheit {
+            get {
+                if (this.IsCelsius) {
+                    return (int)Math.Floor(OvenHeat * 9.0 / 5.0 + 32);
+                }
+                else {
+                    return OvenHeat;
+                }
+            }
+        }
+
+        public int Celsius
+        {
+            get
+            {
+                if (this.IsCelsius)
+                {
+                    return OvenHeat;
+                }
+                else
+                {
+                    return (int)Math.Round((OvenHeat - 32) * 5.0 / 9.0);
+                }
+            }
         }
 
         /////////////////Methods////////////////////
