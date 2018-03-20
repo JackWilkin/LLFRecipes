@@ -27,7 +27,11 @@ namespace Recipes.Tests.Database
             Recipe recipe = db.GetRecipeById(1);
 
             Assert.NotNull(recipe);
+            Assert.NotNull(recipe.Ingredients);
+            Assert.NotNull(recipe.Utensils);
             Assert.AreEqual(recipe.RecipeId, 1);
+            Assert.AreEqual(recipe.Utensils.Count, 2);
+            Assert.AreEqual(recipe.Ingredients.Count, 4);
 
             Recipe notARecipe = db.GetRecipeById(-1);
             Assert.IsNull(notARecipe);
@@ -41,6 +45,13 @@ namespace Recipes.Tests.Database
 
             Assert.NotNull(recipe);
             Assert.AreEqual(recipe.RecipeTitle, "Apple Crisp");
+
+            //Assert.NotNull(recipe);
+            //Assert.NotNull(recipe.Ingredients);
+            //Assert.NotNull(recipe.Utensils);
+            //Assert.AreEqual(recipe.RecipeId, 1);
+            //Assert.AreEqual(recipe.Utensils.Count, 2);
+            //Assert.AreEqual(recipe.Ingredients.Count, 4);
 
             Recipe notARecipe = db.GetRecipeByTitle("Not a recipe name");
             Assert.IsNull(notARecipe);

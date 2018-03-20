@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using Newtonsoft.Json;
 using Recipes.Models;
 
 namespace Recipes.Data
@@ -32,6 +30,12 @@ namespace Recipes.Data
             string ingredientListJsonParsable = ingredientListJson.Replace("[\"", "\"").Replace("\"]", "\"");                                         
             List<Ingredient> ingredientsAsList = DataUtils.JsonToList<Ingredient>(ingredientListJsonParsable);
 
+            string toolsQuery = DataUtils.DB_ROOT_ADDRESS + "tools?q={\"RecipeId\":" + recipeId + "}&h={\"$fields\":{\"UtensilId\":1}}";
+            string utensilsIdsJson = Get(toolsQuery);
+            string utensilsQuery = DataUtils.DB_ROOT_ADDRESS + "utensil?q={\"$or\":" + utensilsIdsJson + "}";
+            string utensilLisstJson = Get(utensilsQuery);
+            List<Utensil> utensilsAsList = DataUtils.JsonToList<Utensil>(utensilLisstJson);
+           
             if (recipeAsList.Count > 1)
             {
                 throw new Exception("There are more than one recipe with that RecipeId");
@@ -43,7 +47,7 @@ namespace Recipes.Data
             else
             {
                 recipeAsList[0].Ingredients = ingredientsAsList;
-                recipeAsList[0].Utensils = new List<Utensil>();
+                recipeAsList[0].Utensils = utensilsAsList;
                 return recipeAsList[0];
             }
         }
