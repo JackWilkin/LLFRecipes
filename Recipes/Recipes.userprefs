@@ -1,37 +1,16 @@
 ﻿<Properties StartupConfiguration="{3217702B-D977-441B-A748-10DCCF9922AC}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Data/RecipeContext.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../Recipes.Tests/Database/DBConnectionTests.cs">
     <Files>
       <File FileName="Data/IRecipeDBManager.cs" Line="1" Column="1" />
-      <File FileName="Data/RecipeContext.cs" Line="39" Column="61" />
+      <File FileName="Data/RecipeContext.cs" Line="18" Column="43" />
       <File FileName="Models/Recipe.cs" Line="1" Column="1" />
       <File FileName="Controllers/RecipeApiController.cs" Line="1" Column="1" />
-      <File FileName="../Recipes.Tests/Database/DBConnectionTests.cs" Line="31" Column="45" />
-      <File FileName="Data/DataUtils.cs" Line="9" Column="41" />
-      <File FileName="Controllers/RecipeController.cs" Line="32" Column="1" />
-      <File FileName="Views/Recipe/Display.cshtml" Line="19" Column="41" />
-      <File FileName="Views/Recipe/Home.cshtml" Line="1" Column="1" />
-      <File FileName="Views/_ViewStart.cshtml" Line="1" Column="1" />
-      <File FileName="Views/Recipe/Index.cshtml" Line="1" Column="1" />
-      <File FileName="Views/Shared/_Layout.cshtml" Line="1" Column="1" />
-      <File FileName="Models/Ingredient.cs" Line="1" Column="1" />
-      <File FileName="Models/Unit.cs" Line="1" Column="1" />
+      <File FileName="../Recipes.Tests/Database/DBConnectionTests.cs" Line="55" Column="64" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
-          <Node name="Recipes" expanded="True">
-            <Node name="Recipes.Tests" expanded="True">
-              <Node name="Recipes" expanded="True">
-                <Node name="Tests" expanded="True">
-                  <Node name="Database" expanded="True">
-                    <Node name="DBConnectionTests" expanded="True">
-                      <Node name="TestGetRecipeById" selected="True" />
-                    </Node>
-                  </Node>
-                </Node>
-              </Node>
-            </Node>
-          </Node>
+          <Node name="Recipes" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

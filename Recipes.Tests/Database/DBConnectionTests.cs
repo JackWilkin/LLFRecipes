@@ -1,8 +1,9 @@
-﻿using System;
-using Recipes.Models;
+﻿using System.Collections.Generic;
+
 using NUnit.Framework;
+
+using Recipes.Models;
 using Recipes.Data;
-using System.Collections.Generic;
 
 namespace Recipes.Tests.Database
 {
@@ -53,13 +54,8 @@ namespace Recipes.Tests.Database
 
             Assert.NotNull(recipe);
             Assert.AreEqual(recipe.RecipeTitle, "Apple Crisp");
-
-            //Assert.NotNull(recipe);
-            //Assert.NotNull(recipe.Ingredients);
-            //Assert.NotNull(recipe.Utensils);
-            //Assert.AreEqual(recipe.RecipeId, 1);
-            //Assert.AreEqual(recipe.Utensils.Count, 2);
-            //Assert.AreEqual(recipe.Ingredients.Count, 4);
+            Assert.Null(recipe.Ingredients);
+            Assert.Null(recipe.Utensils);
 
             Recipe notARecipe = db.GetRecipeByTitle("Not a recipe name");
             Assert.IsNull(notARecipe);
