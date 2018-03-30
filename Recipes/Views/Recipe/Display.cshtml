@@ -10,14 +10,8 @@
             <h1 id="RecipeTitle">@Model.RecipeTitle</h1>
             <div class="oven-heat">
                 
-                <h2>Preheat the oven to: @Model.OvenHeat &#176
-                    @if (Model.IsCelsius) 
-                    {
-                        <span>Celsius</span>
-                    } 
-                    else{
-                        <span>Fahrenheit</span>
-                    }
+                <h2>Preheat the oven to:
+                    <span id="temperature-display"></span>
                 </h2>
             </div>
             <h2 class="utensils" >Utensils needded: <span class="utensils utensil-list"></span> </h2>
@@ -44,7 +38,7 @@
                 <div class="tool temperature-tool">
                     <label>Temperature:</label>
                     <label class="switch toggle-temperature">
-                        <input type="checkbox"/>
+                        <input id="temperature-checkbox" type="checkbox"/>
                         <span class="slider"></span>
                     </label>
                 </div>
@@ -90,8 +84,19 @@
         }
     
         $(".utensil-list").text(listAsString.join());
+    
+        if ("@Model.IsCelsius".toLowerCase() == "true")
+        {
+            $("#temperature-display").text(
+                "@Model.Celsius° Celsius"
+            )
+        } 
+        else{
+            $("#temperature-display").text(
+                "@Model.Fahrenheit° Fahrenheit"
+            )
+        }
        
-
     });
 
     function openNav() {
@@ -129,6 +134,19 @@
                 $("#scale-custom-label").text("Custom");
 
             }
+    });
+
+    $('#temperature-checkbox').click(function() {
+        if(document.getElementById('temperature-checkbox').checked) {
+            $("#temperature-display").text(
+                "@Model.Celsius° Celsius"
+            )
+        } else {
+            $("#temperature-display").text(
+              
+                "@Model.Fahrenheit° Fahrenheit"
+            )
+        }
     });
    
 

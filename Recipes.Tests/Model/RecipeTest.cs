@@ -57,45 +57,26 @@ namespace Recipes.Tests.Model
             }
 
         }
-        [Test]
-        public void TestCovertTemperature()
-        {
-            GenerateTestData();
-            Recipe testAppleCrisp = appleCrisp.Clone();
-
-            Assert.AreEqual(testAppleCrisp.OvenHeat, 350);
-            Assert.AreEqual(testAppleCrisp.IsCelsius, false);
-
-            testAppleCrisp.ConvertTemperature();
-
-            Assert.AreEqual(testAppleCrisp.OvenHeat, 177);
-            Assert.AreEqual(testAppleCrisp.IsCelsius, true);
-
-            testAppleCrisp.ConvertTemperature();
-
-            Assert.AreEqual(testAppleCrisp.OvenHeat, 350);
-            Assert.AreEqual(testAppleCrisp.IsCelsius, false);
-        }
 
         [Test]
         public void TestToString()
         {
             GenerateTestData();
             Recipe testAppleCrisp = appleCrisp.Clone();
+            Recipe testChocolateCake = chocolateCake.Clone();
             Assert.AreEqual("Recipe: Apple Crisp \nOven Heat: 350° Fahrenheit\nUtensils: Whisk, Bowl \n" +
                     "Instructions: Whisk it all in a bowl \nIngredients: 1.5  Whole Apples, 1 Cup Sugar, " +
                             "2 Tablespoon Cinnamon, 0.5 Teaspoon Salt", testAppleCrisp.ToString());
+            
+            testChocolateCake.ScaleRecipe(2);
 
-            testAppleCrisp.ConvertTemperature();
-            testAppleCrisp.ScaleRecipe(2);
-
-            Assert.AreEqual("Recipe: Apple Crisp \nOven Heat: 177° Celsius\nUtensils: Whisk, Bowl \n" +
-                    "Instructions: Whisk it all in a bowl \nIngredients: 3  Whole Apples, 2 Cup Sugar, " +
-                            "4 Tablespoon Cinnamon, 1 Teaspoon Salt", testAppleCrisp.ToString());
+            Assert.AreEqual("Recipe: Chocolate Cake \nOven Heat: 170° Celsius\nUtensils:  \n"+
+                    "Instructions: Whisk it all in a bowl \nIngredients: 3 Cup Butter, 2 Cup Sugar, " +
+                            "4 Tablespoon Chocolate, 1 Teaspoon Salt", testChocolateCake.ToString());
         }
 
         [Test]
-        public void TestCelsius()
+        public void TestCelsiusFahrenheit()
         {
             GenerateTestData();
             Recipe testAppleCrisp = appleCrisp.Clone();

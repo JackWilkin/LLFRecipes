@@ -112,19 +112,6 @@ namespace Recipes.Models
             }
         }
 
-        public void ConvertTemperature()
-        {
-            if (IsCelsius)
-            {
-                OvenHeat = (int)Math.Floor(OvenHeat * 9.0 / 5.0 + 32);
-            }
-            else
-            {
-                OvenHeat = (int)Math.Ceiling((OvenHeat - 32) * 5.0 / 9.0);
-            }
-            IsCelsius = !IsCelsius;
-        }
-
         public void ScaleRecipe(double scaler)
         {
             foreach (Ingredient i in this.Ingredients)
