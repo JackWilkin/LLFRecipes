@@ -89,12 +89,14 @@
         {
             $("#temperature-display").text(
                 "@Model.Celsius° Celsius"
-            )
+            );
+            $("#temperature-checkbox").prop( "checked", true );
         } 
         else{
             $("#temperature-display").text(
                 "@Model.Fahrenheit° Fahrenheit"
-            )
+            );
+            $("#temperature-checkbox").prop( "checked", false );
         }
        
     });
