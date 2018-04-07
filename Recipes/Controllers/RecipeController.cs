@@ -12,10 +12,12 @@ namespace Recipes.Controllers
 {
     public class RecipeController : Controller
     {
+        private Recipe currentRecipe;
+
         // GET: Recipe
         public ActionResult Index()
         {
-            return View();//db.Recipes.ToList());
+            return View();
         }
         
 
@@ -29,8 +31,8 @@ namespace Recipes.Controllers
         public ActionResult Display(int recipeId)
         {
             IRecipeDBManager db = new RecipeContext();
-            Recipe recipe = db.GetRecipeById(recipeId);
-            return View(recipe);
+            currentRecipe = db.GetRecipeById(recipeId);
+            return View(currentRecipe);
         }
     }
 }

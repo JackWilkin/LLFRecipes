@@ -7,6 +7,7 @@
     <body>
         <span class="tools-icon" onclick="openNav()">&#9776; Tools</span>
         <div class="recipe-page-body">
+            <p>@Model.ScaleRecipe()</p>
             <h1 id="RecipeTitle">@Model.RecipeTitle</h1>
             <div class="oven-heat">
                 
@@ -70,6 +71,14 @@
                 <div class="tool favorite-tool">
                     <label>Add to Favorites</label>
                 </div>
+                <div class="tool">
+                    <dd>
+                        @Html.DisplayFor(Model => Model.OvenHeat)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(Model => Model.IsCelsius)
+                    </dt>
+                </div>
 
         </div>
     </body>
@@ -125,17 +134,43 @@
     $('input:radio[name="radio"]').change(
         function(){
             x = document.getElementById("scale-input");
-
+            /*
             if($(this).val() == "custom") {
                 $("#scale-input").show();
                 $("#scale-custom-label").text("");
-
+                $("#scale-input").val(2);
             }
-            else {
+            else if ($(this).val() == "double"){
                 $("#scale-input").hide();
                 $("#scale-custom-label").text("Custom");
-
+                $("#scale-input").val(2);
             }
+            else if ($(this).val() == "half"){
+                debugger;
+                $("#scale-input").hide();
+                $("#scale-custom-label").text("Custom");
+                $("#scale-input").val(.5);
+            }
+    */
+    debugger;
+            switch ($(this).val()) {
+            case "custom":
+                $("#scale-input").show();
+                $("#scale-custom-label").text("");
+                break;
+            case "double":
+                $("#scale-input").hide();
+                $("#scale-custom-label").text("Custom");
+                $("#scale-input").val(2);
+                $("#scale-input").change();
+                break;
+            case "half":
+                $("#scale-input").hide();
+                $("#scale-custom-label").text("Custom");
+                $("#scale-input").val(.5);
+                $("#scale-input").change();
+                break;
+        }
     });
 
     $('#temperature-checkbox').click(function() {
@@ -148,6 +183,14 @@
               
                 "@Model.Fahrenheit° Fahrenheit"
             )
+        }
+    });
+
+    $('#scale-input').change(function() {
+        //call method that redirects the page
+        function foo(id) {
+            var url = '@Url.Action("Details", "Branch", new { id = "__id__" })';
+            window.location.href = url.replace('__id__', id);
         }
     });
    
