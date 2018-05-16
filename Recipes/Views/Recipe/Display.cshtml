@@ -79,7 +79,7 @@
 
         $(".utensil-list").text(listAsString.join());
 
-        if ("@Model.Recipe.IsCelsius".toLowerCase() == "true")
+        if ("@Model.IsCelsius".toLowerCase() == "true")
         {
             $("#temperature-display").text(
                 "@Model.Recipe.Celsius° Celsius"
@@ -92,7 +92,7 @@
             );
             $("#temperature-checkbox").prop( "checked", false );
         }
-        debugger;
+
         $("#scale-input").val(@Model.Scaler);
 
         if ($("#scale-input").val() == 2) {
@@ -163,8 +163,10 @@
 
     $("#scale-input").change(
         function(){
+            debugger;
             var scaler = $("#scale-input").val();
-            window.location.replace("/Recipe/Display?recipeId=0&scaler=" + scaler);
+            var isCelsius = document.getElementById('temperature-checkbox').checked;
+            window.location.replace("/Recipe/Display?recipeId=0&scaler=" + scaler +"&isCelsius=" + isCelsius);
         }
     );
 

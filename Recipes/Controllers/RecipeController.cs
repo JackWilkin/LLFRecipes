@@ -29,9 +29,9 @@ namespace Recipes.Controllers
             //GlobalCachingProvider.Instance.Dispose();
             return View();
         }
-
+        
         // GET: /Recipe/Display/
-        public ActionResult Display(int recipeId, double scaler = 1)
+		public ActionResult Display(int recipeId, double scaler = 1, bool? isCelsius = null)
         {
             string key = recipeId.ToString();
             if (GlobalCachingProvider.Instance.IsCached(key)) {
@@ -43,11 +43,19 @@ namespace Recipes.Controllers
                 currentRecipe = db.GetRecipeById(recipeId);
 				GlobalCachingProvider.Instance.AddItem(key, currentRecipe);
             }
-			RecipeViewModel viewModel = new RecipeViewModel(currentRecipe.ScaleRecipe(scaler), scaler);
+
+			RecipeViewModel viewModel;
+			if (isCelsius == null) {
+				viewModel = new RecipeViewModel(currentRecipe.ScaleRecipe(scaler), scaler);
+			}
+			else {
+				viewModel = new RecipeViewModel(currentRecipe.ScaleRecipe(scaler), scaler, (bool)isCelsius);
+			}
+			 
             
 			return View(viewModel);
         }
-
+                                                
         // GET: /Recipe/_Ingredients/
         [HttpGet]
         public ActionResult _Ingredients()
