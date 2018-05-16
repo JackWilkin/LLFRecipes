@@ -47,13 +47,13 @@ namespace Recipes.Tests.Model
                 Assert.AreEqual(testAppleCrisp.Ingredients[i].Quantity, initialQuantities[i], .01);
             }
 
-            testAppleCrisp.ScaleRecipe(.5);
+            Recipe scaledAppleCrisp = testAppleCrisp.ScaleRecipe(.5);
 
-            Assert.AreEqual(testAppleCrisp.Ingredients[0].Quantity, .75, .01);
+            Assert.AreEqual(scaledAppleCrisp.Ingredients[0].Quantity, .75, .01);
 
             for (int i = 0; i < initialQuantities.Count; i++)
             {
-                Assert.AreEqual(testAppleCrisp.Ingredients[i].Quantity, initialQuantities[i]*.5, .01);
+                Assert.AreEqual(scaledAppleCrisp.Ingredients[i].Quantity, initialQuantities[i]*.5, .01);
             }
 
         }
@@ -67,12 +67,11 @@ namespace Recipes.Tests.Model
             Assert.AreEqual("Recipe: Apple Crisp \nOven Heat: 350° Fahrenheit\nUtensils: Whisk, Bowl \n" +
                     "Instructions: Whisk it all in a bowl \nIngredients: 1.5  Whole Apples, 1 Cup Sugar, " +
                             "2 Tablespoon Cinnamon, 0.5 Teaspoon Salt", testAppleCrisp.ToString());
-            
-            testChocolateCake.ScaleRecipe(2);
+           
 
             Assert.AreEqual("Recipe: Chocolate Cake \nOven Heat: 170° Celsius\nUtensils:  \n"+
                     "Instructions: Whisk it all in a bowl \nIngredients: 3 Cup Butter, 2 Cup Sugar, " +
-                            "4 Tablespoon Chocolate, 1 Teaspoon Salt", testChocolateCake.ToString());
+                            "4 Tablespoon Chocolate, 1 Teaspoon Salt", testChocolateCake.ScaleRecipe(2).ToString());
         }
 
         [Test]

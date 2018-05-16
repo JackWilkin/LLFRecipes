@@ -112,12 +112,16 @@ namespace Recipes.Models
             }
         }
 
-        public void ScaleRecipe(double scaler)
+        public Recipe ScaleRecipe(double scaler)
         {
-            foreach (Ingredient i in this.Ingredients)
+            Recipe clone = this.Clone();
+
+            foreach (Ingredient i in clone.Ingredients)
             {
                 i.ScaleIngredient(scaler);
             }
+
+            return clone;
         }
 
 
@@ -136,7 +140,11 @@ namespace Recipes.Models
 
         public Recipe Clone()
         {
-            return new Recipe(RecipeId, RecipeTitle, Ingredients, Utensils, OvenHeat, RecipeInstructions, IsCelsius);
+            List<Ingredient> clonedIngredients = new List<Ingredient>();
+            foreach(Ingredient i in Ingredients) {
+                clonedIngredients.Add(i.Clone());
+            }
+            return new Recipe(RecipeId, RecipeTitle, clonedIngredients, new List<Utensil>(Utensils), OvenHeat, RecipeInstructions, IsCelsius);
         }
 
         public string ToJson() {

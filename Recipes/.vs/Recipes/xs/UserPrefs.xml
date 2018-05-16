@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{3217702B-D977-441B-A748-10DCCF9922AC}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Recipe/Display.cshtml">
+    <Files>
+      <File FileName="Cache/CachingProviderBase.cs" Line="17" Column="10" />
+      <File FileName="Cache/IGlobalCachingProvider.cs" Line="10" Column="6" />
+      <File FileName="Cache/GlobalCachingProvider.cs" Line="41" Column="43" />
+      <File FileName="Controllers/RecipeController.cs" Line="48" Column="1" />
+      <File FileName="Views/Recipe/Display.cshtml" Line="9" Column="34" />
+      <File FileName="Views/Recipe/Home.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Shared/_Layout.cshtml" Line="14" Column="54" />
+      <File FileName="Models/RecipeViewModel.cs" Line="4" Column="30" />
+      <File FileName="Models/Recipe.cs" Line="1" Column="1" />
+      <File FileName="Views/Recipe/_Ingredients.cshtml" Line="11" Column="8" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Recipes PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

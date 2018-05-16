@@ -62,5 +62,9 @@ namespace Recipes.Models
         {
             return new JavaScriptSerializer().Serialize(this);
         }
+
+        public Ingredient Clone() {
+            return new Ingredient(ingredientId, ingredientName, quantity, unit);
+        }
     }
 }

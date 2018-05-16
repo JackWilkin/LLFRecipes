@@ -1,0 +1,10 @@
+﻿<html>
+    <h2>Ingredients:</h2>
+    <br>
+    <ul>
+        @foreach (var ingredient in Model.Recipe.Ingredients)
+    {
+        <li>@ingredient.ToString()</li>
+}
+    </ul>
+</html>

@@ -90,7 +90,8 @@ C:/Users/jwilkin/Desktop/Recipes-master/Recipes.Tests/obj/Debug/Recipes.Tests.pd
 /Users/wilkin/Projects/Coding_Projects/LLFRecipes/Recipes.Tests/bin/Debug/System.Web.Http.WebHost.xml
 /Users/wilkin/Projects/Coding_Projects/LLFRecipes/Recipes.Tests/bin/Debug/Newtonsoft.Json.xml
 /Users/wilkin/Projects/Coding_Projects/LLFRecipes/Recipes.Tests/bin/Debug/nunit.framework.xml
-/Users/wilkin/Projects/Coding_Projects/LLFRecipes/Recipes.Tests/obj/Debug/Recipes.Tests.csprojResolveAssemblyReference.cache
 /Users/wilkin/Projects/Coding_Projects/LLFRecipes/Recipes.Tests/obj/Debug/Recipes.Tests.csproj.CoreCompileInputs.cache
 /Users/wilkin/Projects/Coding_Projects/LLFRecipes/Recipes.Tests/obj/Debug/Recipes.Tests.dll
 /Users/wilkin/Projects/Coding_Projects/LLFRecipes/Recipes.Tests/obj/Debug/Recipes.Tests.pdb
+/Users/wilkin/Projects/Coding_Projects/LLFRecipes/Recipes.Tests/obj/Debug/Recipes.Tests.csprojAssemblyReference.cache
+/Users/wilkin/Projects/Coding_Projects/LLFRecipes/Recipes.Tests/obj/Debug/Recipes.Tests.csproj.CopyComplete

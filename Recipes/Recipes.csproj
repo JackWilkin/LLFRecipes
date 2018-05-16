@@ -95,6 +95,7 @@
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Caching" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -103,13 +104,13 @@
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
-    <Content Include="Views\Recipe\Index.cshtml" />
     <Content Include="Content\HomePage.css" />
     <Content Include="Scripts\RecipeApi.js" />
     <Content Include="Views\Recipe\Display.cshtml" />
     <Content Include="Views\Recipe\Home.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Content\RecipePage.css" />
+    <Content Include="Views\Recipe\_Ingredients.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -127,6 +128,10 @@
     <Compile Include="Data\RestClient.cs" />
     <Compile Include="Data\IRecipeDBManager.cs" />
     <Compile Include="Data\DataUtils.cs" />
+    <Compile Include="Cache\CachingProviderBase.cs" />
+    <Compile Include="Cache\IGlobalCachingProvider.cs" />
+    <Compile Include="Cache\GlobalCachingProvider.cs" />
+    <Compile Include="Models\RecipeViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -134,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\" />
+    <Folder Include="Cache\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Images\pancake.jpeg" />

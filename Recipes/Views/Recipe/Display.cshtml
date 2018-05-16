@@ -1,113 +1,108 @@
-﻿@model Recipes.Models.Recipe
-<html>
+﻿<html>
 <head>
     <link rel="stylesheet" href="/Content/RecipePage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-    <body>
-        <span class="tools-icon" onclick="openNav()">&#9776; Tools</span>
-        <div class="recipe-page-body">
-            <p>@Model.ScaleRecipe()</p>
-            <h1 id="RecipeTitle">@Model.RecipeTitle</h1>
-            <div class="oven-heat">
-                
-                <h2>Preheat the oven to:
-                    <span id="temperature-display"></span>
-                </h2>
-            </div>
-            <h2 class="utensils" >Utensils needded: <span class="utensils utensil-list"></span> </h2>
+<body>
+    <span class="tools-icon" onclick="openNav()">&#9776; Tools</span>
+    <div class="recipe-page-body">
+        <h1 id="RecipeTitle">@Model.Recipe.RecipeTitle</h1>
+        <div class="oven-heat">
 
-
-            <div class="ingredients">
-                <h2>Ingredients:</h2>
-                <br>
-                <ul>
-                    @foreach (var ingredient in Model.Ingredients)
-                    {
-                        <li>@ingredient.ToString()</li>
-                    }
-                </ul>
-            </div>
-            <div class="instructions">
-                <h2 >Instructions: </h2>
-                <p>@Model.RecipeInstructions</p>
-            </div>
+            <h2>
+                Preheat the oven to:
+                <span id="temperature-display"></span>
+            </h2>
         </div>
-        
-        <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <div class="tool temperature-tool">
-                    <label>Temperature:</label>
-                    <label class="switch toggle-temperature">
-                        <input id="temperature-checkbox" type="checkbox"/>
-                        <span class="slider"></span>
-                    </label>
-                </div>
-                <div class="tool scale-tool">
-                    <label for="scale">Scale:</label>
-                    <form>
-                      <label class="radio-button">1/2
-                          <input type="radio" checked="checked" name="radio" value="half">
-                          <span class="checkmark"></span>
-                      </label>
-                      <label class="radio-button">2
-                          <input type="radio" name="radio" value="double">
-                          <span class="checkmark"></span>
-                      </label>
-                      <label class="radio-button">
-                          <span id="scale-custom-label">Custom</span>
-                          <input type="radio" name="radio" value="custom">
-                          <span class="checkmark"></span>
-                          <input id="scale-input" type="text" name="scale" >
-                      </label>
-                    </form> 
-                </div>
-                <div class="tool revert-tool">
-                    <label>Clear Changes</label>
-                </div>
-                <div class="tool view-scans-tool">
-                    <label>View Scanned Recipe</label>
-                </div>
-                <div class="tool favorite-tool">
-                    <label>Add to Favorites</label>
-                </div>
-                <div class="tool">
-                    <dd>
-                        @Html.DisplayFor(Model => Model.OvenHeat)
-                    </dd>
-                    <dt>
-                        @Html.DisplayNameFor(Model => Model.IsCelsius)
-                    </dt>
-                </div>
+        <h2 class="utensils">Utensils needded: <span class="utensils utensil-list"></span> </h2>
 
+        <div class="ingredients">
+            @Html.Partial("_Ingredients")
         </div>
-    </body>
+        <div class="instructions">
+            <h2>Instructions: </h2>
+            <p>@Model.Recipe.RecipeInstructions</p>
+        </div>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="tool temperature-tool">
+            <label>Temperature:</label>
+            <label class="switch toggle-temperature">
+                <input id="temperature-checkbox" type="checkbox" />
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="tool scale-tool">
+            <label for="scale">Scale:</label>
+            <form>
+                <label class="radio-button">
+                    1/2
+                    <input id="scale-button-half" type="radio" name="radio" value="half">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="radio-button">
+                    2
+                    <input id="scale-button-two" type="radio" name="radio" value="double">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="radio-button">
+                    <span id="scale-custom-label">Custom</span>
+                    <input id="scale-button-custom" type="radio" name="radio" value="custom">
+                    <span class="checkmark"></span>
+                    <input id="scale-input" type="text" name="scale">
+                </label>
+            </form>
+        </div>
+        <div class="tool revert-tool">
+            <label>Clear Changes</label>
+        </div>
+        <div class="tool view-scans-tool">
+            <label>View Scanned Recipe</label>
+        </div>
+        <div class="tool favorite-tool">
+            <label>Add to Favorites</label>
+        </div>
+
+    </div>
+</body>
 </html>
 <script type="text/javascript">
     $(function() {
-        var list = @Html.Raw(Json.Encode(Model.Utensils));
+        var list = @Html.Raw(Json.Encode(Model.Recipe.Utensils));
         var listAsString = [];
         for (i = 0; i < list.length; i++) {
             var item = list[i];
             listAsString[i] = " " + item.UtensilName;
         }
-    
+
         $(".utensil-list").text(listAsString.join());
-    
-        if ("@Model.IsCelsius".toLowerCase() == "true")
+
+        if ("@Model.Recipe.IsCelsius".toLowerCase() == "true")
         {
             $("#temperature-display").text(
-                "@Model.Celsius° Celsius"
+                "@Model.Recipe.Celsius° Celsius"
             );
             $("#temperature-checkbox").prop( "checked", true );
-        } 
+        }
         else{
             $("#temperature-display").text(
-                "@Model.Fahrenheit° Fahrenheit"
+                "@Model.Recipe.Fahrenheit° Fahrenheit"
             );
             $("#temperature-checkbox").prop( "checked", false );
         }
-       
+        debugger;
+        $("#scale-input").val(@Model.Scaler);
+
+        if ($("#scale-input").val() == 2) {
+            $("#scale-button-two").prop("checked", true).trigger("click");
+        }
+
+        if ($("#scale-input").val() == .5) {
+            $("#scale-button-half").prop("checked", true).trigger("click");
+        }
+
     });
 
     function openNav() {
@@ -133,26 +128,6 @@
 
     $('input:radio[name="radio"]').change(
         function(){
-            x = document.getElementById("scale-input");
-            /*
-            if($(this).val() == "custom") {
-                $("#scale-input").show();
-                $("#scale-custom-label").text("");
-                $("#scale-input").val(2);
-            }
-            else if ($(this).val() == "double"){
-                $("#scale-input").hide();
-                $("#scale-custom-label").text("Custom");
-                $("#scale-input").val(2);
-            }
-            else if ($(this).val() == "half"){
-                debugger;
-                $("#scale-input").hide();
-                $("#scale-custom-label").text("Custom");
-                $("#scale-input").val(.5);
-            }
-    */
-    debugger;
             switch ($(this).val()) {
             case "custom":
                 $("#scale-input").show();
@@ -176,23 +151,21 @@
     $('#temperature-checkbox').click(function() {
         if(document.getElementById('temperature-checkbox').checked) {
             $("#temperature-display").text(
-                "@Model.Celsius° Celsius"
+                "@Model.Recipe.Celsius° Celsius"
             )
         } else {
             $("#temperature-display").text(
-              
-                "@Model.Fahrenheit° Fahrenheit"
+
+                "@Model.Recipe.Fahrenheit° Fahrenheit"
             )
         }
     });
 
-    $('#scale-input').change(function() {
-        //call method that redirects the page
-        function foo(id) {
-            var url = '@Url.Action("Details", "Branch", new { id = "__id__" })';
-            window.location.href = url.replace('__id__', id);
+    $("#scale-input").change(
+        function(){
+            var scaler = $("#scale-input").val();
+            window.location.replace("/Recipe/Display?recipeId=0&scaler=" + scaler);
         }
-    });
-   
+    );
 
 </script>

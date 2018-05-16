@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using Recipes.Data;
 using Recipes.Models;
+using Recipes.Cache;
+using System.Runtime.Caching;
 
 namespace Recipes.Controllers
 {
@@ -24,15 +26,35 @@ namespace Recipes.Controllers
         // GET: /Recipe/Home
         public ActionResult Home()
         {
+            //GlobalCachingProvider.Instance.Dispose();
             return View();
         }
 
         // GET: /Recipe/Display/
-        public ActionResult Display(int recipeId)
+        public ActionResult Display(int recipeId, double scaler = 1)
         {
-            IRecipeDBManager db = new RecipeContext();
-            currentRecipe = db.GetRecipeById(recipeId);
-            return View(currentRecipe);
+            string key = recipeId.ToString();
+            if (GlobalCachingProvider.Instance.IsCached(key)) {
+                //This casting is bad should fix later on down the road
+                currentRecipe = (Recipe) GlobalCachingProvider.Instance.GetItem(key);
+            }
+            else {
+                IRecipeDBManager db = new RecipeContext();
+                currentRecipe = db.GetRecipeById(recipeId);
+				GlobalCachingProvider.Instance.AddItem(key, currentRecipe);
+            }
+			RecipeViewModel viewModel = new RecipeViewModel(currentRecipe.ScaleRecipe(scaler), scaler);
+            
+			return View(viewModel);
+        }
+
+        // GET: /Recipe/_Ingredients/
+        [HttpGet]
+        public ActionResult _Ingredients()
+        {
+
+            //List<Ingredient> model = ingredients;
+            return PartialView("Recipe/_Ingredients");
         }
     }
 }
