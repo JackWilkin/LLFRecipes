@@ -55,6 +55,15 @@ namespace Recipes.Controllers
             
 			return View(viewModel);
         }
+
+		// GET: /Recipe/Browse/
+        [HttpGet]
+        public ActionResult Browse()
+        {
+			IRecipeDBManager db = new RecipeContext();
+            List<Recipe> model = db.GetFullListRecipes();
+			return View(model);
+        }
                                                 
         // GET: /Recipe/_Ingredients/
         [HttpGet]

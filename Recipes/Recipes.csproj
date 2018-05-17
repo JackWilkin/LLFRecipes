@@ -111,6 +111,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Content\RecipePage.css" />
     <Content Include="Views\Recipe\_Ingredients.cshtml" />
+    <Content Include="Views\Recipe\Browse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
