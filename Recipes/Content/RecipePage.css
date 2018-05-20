@@ -1,6 +1,8 @@
 ﻿/*Recipe Sytles*/
 body {
     background-color: grey;
+    display: inline-block;
+    padding-bottom: 80px;
 }
 
 .recipe-page-body {

@@ -1,6 +1,7 @@
 ﻿<html>
 <head>
     <link rel="stylesheet" href="/Content/RecipePage.css">
+    <script type="text/javascript" src="/Scripts/Display.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -166,7 +167,9 @@
             debugger;
             var scaler = $("#scale-input").val();
             var isCelsius = document.getElementById('temperature-checkbox').checked;
-            window.location.replace("/Recipe/Display?recipeId=0&scaler=" + scaler +"&isCelsius=" + isCelsius);
+            var recipeId = @Model.Recipe.RecipeId;
+            var url = "/Recipe/Display?recipeId="+ recipeId +"&scaler=" + scaler +"&isCelsius=" + isCelsius;
+            window.location.replace(url);
         }
     );
 

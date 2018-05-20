@@ -1,20 +1,23 @@
 ﻿<Properties StartupConfiguration="{3217702B-D977-441B-A748-10DCCF9922AC}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Web.config">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Scripts/Display.js">
     <Files>
       <File FileName="Cache/CachingProviderBase.cs" Line="17" Column="10" />
       <File FileName="Cache/IGlobalCachingProvider.cs" Line="10" Column="6" />
       <File FileName="Cache/GlobalCachingProvider.cs" Line="41" Column="43" />
       <File FileName="Controllers/RecipeController.cs" Line="34" Column="43" />
-      <File FileName="Views/Recipe/Display.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Recipe/Display.cshtml" Line="4" Column="49" />
       <File FileName="Views/Recipe/Home.cshtml" Line="1" Column="1" />
       <File FileName="Views/Shared/_Layout.cshtml" Line="14" Column="27" />
       <File FileName="Models/RecipeViewModel.cs" Line="4" Column="30" />
       <File FileName="Models/Recipe.cs" Line="1" Column="1" />
       <File FileName="Views/Recipe/_Ingredients.cshtml" Line="10" Column="8" />
-      <File FileName="Views/Recipe/Browse.cshtml" Line="7" Column="24" />
+      <File FileName="Views/Recipe/Browse.cshtml" Line="10" Column="48" />
       <File FileName="Data/IRecipeDBManager.cs" Line="9" Column="22" />
       <File FileName="Data/RecipeContext.cs" Line="1" Column="1" />
-      <File FileName="Views/Web.config" Line="18" Column="57" />
+      <File FileName="Views/Web.config" Line="17" Column="32" />
+      <File FileName="Content/RecipePage.css" Line="5" Column="23" />
+      <File FileName="Scripts/RecipeApi.js" Line="1" Column="1" />
+      <File FileName="Scripts/Display.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

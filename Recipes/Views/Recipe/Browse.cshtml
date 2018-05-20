@@ -8,7 +8,6 @@
     @foreach (var recipe in Model)
     {
         string recipeLink = recipe.RecipeTitle;
-        //<input type="button" value="Forgot Password" onclick="window.location.href(" + />
         @Html.ActionLink(recipeLink, "Display", "Recipe", new { recipeId = recipe.RecipeId }, null)<br />
     }
 </body>
