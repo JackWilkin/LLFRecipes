@@ -1,6 +1,7 @@
 ﻿<html>
 <head>
     <link rel="stylesheet" href="/Content/RecipePage.css">
+    <link rel="stylesheet" href="/Content/Tools.css">
     <script type="text/javascript" src="/Scripts/Display.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
@@ -26,51 +27,14 @@
         </div>
     </div>
 
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <div class="tool temperature-tool">
-            <label>Temperature:</label>
-            <label class="switch toggle-temperature">
-                <input id="temperature-checkbox" type="checkbox" />
-                <span class="slider"></span>
-            </label>
-        </div>
-        <div class="tool scale-tool">
-            <label for="scale">Scale:</label>
-            <form>
-                <label class="radio-button">
-                    1/2
-                    <input id="scale-button-half" type="radio" name="radio" value="half">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="radio-button">
-                    2
-                    <input id="scale-button-two" type="radio" name="radio" value="double">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="radio-button">
-                    <span id="scale-custom-label">Custom</span>
-                    <input id="scale-button-custom" type="radio" name="radio" value="custom">
-                    <span class="checkmark"></span>
-                    <input id="scale-input" type="text" name="scale">
-                </label>
-            </form>
-        </div>
-        <div class="tool revert-tool">
-            <label>Clear Changes</label>
-        </div>
-        <div class="tool view-scans-tool">
-            <label>View Scanned Recipe</label>
-        </div>
-        <div class="tool favorite-tool">
-            <label>Add to Favorites</label>
-        </div>
-
+    <div class="tools">
+        @Html.Partial("_Tools")
     </div>
 </body>
 </html>
 <script type="text/javascript">
     $(function() {
+        debugger;
         var list = @Html.Raw(Json.Encode(Model.Recipe.Utensils));
         var listAsString = [];
         for (i = 0; i < list.length; i++) {
@@ -172,5 +136,11 @@
             window.location.replace(url);
         }
     );
+
+    $('#scale-input').keypress(function(e){
+        if ( e.which == 13 ) return false;
+    });
+
+
 
 </script>

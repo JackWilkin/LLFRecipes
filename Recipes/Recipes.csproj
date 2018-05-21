@@ -113,6 +113,9 @@
     <Content Include="Views\Recipe\_Ingredients.cshtml" />
     <Content Include="Views\Recipe\Browse.cshtml" />
     <Content Include="Scripts\Display.js" />
+    <Content Include="Views\Recipe\_Tools.cshtml" />
+    <Content Include="Content\Tools.css" />
+    <Content Include="Content\Ingredients.css" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">

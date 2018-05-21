@@ -1,0 +1,178 @@
+﻿/*Tools Sytles*/
+.tools-icon {
+    font-size: 30px;
+    cursor: pointer;
+    float: left;
+    width: 100%;
+}
+
+/*Side bar styles*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px
+}
+
+    .sidenav .tool {
+        padding: 8px 8px 8px 15px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+        background-color: darkgray;
+        border-color: black;
+        border-style: solid;
+        border-width: 5px 10px;
+    }
+
+    .sidenav tool:hover {
+        color: #f1f1f1
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        color: gray;
+    }
+
+/*Temperature tool styles*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 95px;
+    height: 25px
+}
+
+    .switch input {
+        display: none;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 3px;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    background-color: green;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 15px;
+        width: 15px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(72px);
+    -ms-transform: translateX(72px);
+    transform: translateX(72px);
+}
+
+.slider:after {
+    content: 'Fahrenheit';
+    color: white;
+    display: block;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    font-size: 10px;
+    font-family: Verdana, sans-serif
+}
+
+input:checked + .slider:after {
+    content: 'Celsius'
+}
+
+/*Scale styles*/
+.radio-button {
+    display: inline;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+    .radio-button input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer
+    }
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.radio-button:hover input ~ .checkmark {
+    background-color: #ccc
+}
+
+.radio-button input:checked ~ .checkmark {
+    background-color: #2196F3
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none
+}
+
+.radio-button input:checked ~ .checkmark:after {
+    display: block
+}
+
+.radio-button .checkmark:after {
+    top: 7px;
+    left: 7px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white
+}
+
+#scale-input {
+    display: none;
+    width: 40px;
+}

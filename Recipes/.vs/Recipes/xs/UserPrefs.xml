@@ -1,28 +1,22 @@
 ﻿<Properties StartupConfiguration="{3217702B-D977-441B-A748-10DCCF9922AC}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Scripts/Display.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/RecipeController.cs">
     <Files>
-      <File FileName="Cache/CachingProviderBase.cs" Line="17" Column="10" />
-      <File FileName="Cache/IGlobalCachingProvider.cs" Line="10" Column="6" />
-      <File FileName="Cache/GlobalCachingProvider.cs" Line="41" Column="43" />
-      <File FileName="Controllers/RecipeController.cs" Line="34" Column="43" />
-      <File FileName="Views/Recipe/Display.cshtml" Line="4" Column="49" />
-      <File FileName="Views/Recipe/Home.cshtml" Line="1" Column="1" />
-      <File FileName="Views/Shared/_Layout.cshtml" Line="14" Column="27" />
-      <File FileName="Models/RecipeViewModel.cs" Line="4" Column="30" />
-      <File FileName="Models/Recipe.cs" Line="1" Column="1" />
+      <File FileName="Scripts/Display.js" Line="106" Column="5" />
+      <File FileName="Content/RecipePage.css" Line="25" Column="24" />
+      <File FileName="Views/Recipe/_Tools.cshtml" Line="2" Column="58" />
+      <File FileName="Content/Tools.css" Line="1" Column="17" />
+      <File FileName="Content/HomePage.css" Line="1" Column="1" />
       <File FileName="Views/Recipe/_Ingredients.cshtml" Line="10" Column="8" />
-      <File FileName="Views/Recipe/Browse.cshtml" Line="10" Column="48" />
-      <File FileName="Data/IRecipeDBManager.cs" Line="9" Column="22" />
-      <File FileName="Data/RecipeContext.cs" Line="1" Column="1" />
-      <File FileName="Views/Web.config" Line="17" Column="32" />
-      <File FileName="Content/RecipePage.css" Line="5" Column="23" />
-      <File FileName="Scripts/RecipeApi.js" Line="1" Column="1" />
-      <File FileName="Scripts/Display.js" Line="1" Column="1" />
+      <File FileName="Views/Recipe/Display.cshtml" Line="37" Column="18" />
+      <File FileName="Content/Ingredients.css" Line="6" Column="1" />
+      <File FileName="Controllers/RecipeController.cs" Line="34" Column="43" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/wilkin/Projects/Coding_Projects/LLFRecipes/Recipes/Controllers/RecipeController.cs" relfile="Controllers/RecipeController.cs" line="35" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
