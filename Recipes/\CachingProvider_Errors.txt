@@ -1,2 +1,2 @@
-CachingProvider-IsCached: Don't contains key: 2
-CachingProvider-IsCached: Contains key: 2
+CachingProvider-IsCached: Don't contains key: 0
+CachingProvider-IsCached: Contains key: 0

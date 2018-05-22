@@ -141,6 +141,10 @@
         if ( e.which == 13 ) return false;
     });
 
-
+    $( ".revert-tool" ).click(function() {
+            var recipeId = @Model.Recipe.RecipeId;
+            var url = "/Recipe/Display?recipeId="+ recipeId;
+            window.location.replace(url);
+    });
 
 </script>
