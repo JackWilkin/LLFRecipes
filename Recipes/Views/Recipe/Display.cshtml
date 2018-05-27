@@ -34,7 +34,7 @@
 </html>
 <script type="text/javascript">
     $(function() {
-        debugger;
+        
         var list = @Html.Raw(Json.Encode(Model.Recipe.Utensils));
         var listAsString = [];
         for (i = 0; i < list.length; i++) {

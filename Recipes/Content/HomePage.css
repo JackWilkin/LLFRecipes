@@ -1,24 +1,33 @@
-﻿h2 {
+﻿
+h2 {
     color: white;
     font-family: verdana;
     font-size: 300%;
 }
 
 p {
-    color: gray;
-    font-family: verdana;  
+    color: white;
+    font-family: verdana;
+    font-size: 20px;
 }
 
 body {
-    background-image: url(/Content/Images/pancake.jpeg);   
+    height: 100%;
 }
 
 .home-page-body {
-    min-width: 320px;
-    width: 50%;
-    display: inline-block;
+    background-image: url(/Content/Images/home-page.jpg);
+    height: 100%;
+    width:100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-page-text {
+    float: left;
+    max-width: 500px;
     padding: 20px;
-    float: left;
 }
 
 button {

@@ -1,15 +1,17 @@
 ﻿body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    
+
+}
+html {
+    height: 100%;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    
+    height: 100%;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
+
 input,
 select,
 textarea {
@@ -21,16 +23,17 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333
+    background-color: #ADBED2;
+    width: 100%;
 }
 
 li {
-    float: left
+    float: left;
 }
 
     li a {
         display: block;
-        color: white;
+        color: #001430;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none
@@ -39,21 +42,6 @@ li {
         li a:hover {
             background-color: #111
         }
-
-
-footer {
-    position: fixed;
-    left: 0px;
-    bottom: 0px;
-    width: 100%;
-    background-color: black;
-
-}
-
-footer p {
-    margin-left: 20px;
-    color: grey;
-}
 
 header {
     width: 100%;
