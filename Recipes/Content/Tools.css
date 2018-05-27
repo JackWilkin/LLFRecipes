@@ -1,5 +1,7 @@
 ﻿/*Tools Sytles*/
 .tools-icon {
+    padding-top: 10px;
+    padding-left: 10px;
     font-size: 30px;
     cursor: pointer;
     float: left;

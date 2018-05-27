@@ -1,5 +1,5 @@
 ﻿body {
-    
+    margin:0;
 
 }
 html {
@@ -9,13 +9,6 @@ html {
 .body-content {
     
     height: 100%;
-}
-
-
-input,
-select,
-textarea {
-    max-width: 280px;
 }
 
 ul {
@@ -28,6 +21,7 @@ ul {
 }
 
 li {
+    width: 25%;
     float: left;
 }
 
@@ -40,7 +34,7 @@ li {
     }
 
         li a:hover {
-            background-color: #111
+            background-color: #87AAD1;
         }
 
 header {
