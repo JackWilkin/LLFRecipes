@@ -9,21 +9,42 @@
     <span class="tools-icon" onclick="openNav()">&#9776; Tools</span>
     <div class="recipe-page-body">
         <h1 id="RecipeTitle">@Model.Recipe.RecipeTitle</h1>
-        <div class="oven-heat">
+        <div class="recipe-sidebar">
+            @if (Model.Recipe.OvenHeat > 0)
+            {
+                <div class="oven-heat">
 
-            <h2>
-                Preheat the oven to:
-                <span id="temperature-display"></span>
-            </h2>
-        </div>
-        <h2 class="utensils">Utensils needded: <span class="utensils utensil-list"></span> </h2>
+                    <h2>
+                        Oven heat:
+                        <span id="temperature-display"></span>
+                    </h2>
 
-        <div class="ingredients">
-            @Html.Partial("_Ingredients")
+                </div>
+            }
+            @if (Model.Recipe.Utensils.Count > 0)
+            {
+                <div class=utensils>
+
+                    <h2> Utensils:</h2>
+                    <ul>
+                        @foreach (var utensil in Model.Recipe.Utensils)
+                        {
+                            <li> @utensil.ToString() </li>
+                        }
+                    </ul>
+
+
+                </div>
+            }
         </div>
-        <div class="instructions">
-            <h2>Instructions: </h2>
-            <p>@Model.Recipe.RecipeInstructions</p>
+        <div class="recipe-main">
+            <div class="ingredients">
+                @Html.Partial("_Ingredients")
+            </div>
+            <div class="instructions">
+                <h2>Instructions: </h2>
+                <p>@Model.Recipe.RecipeInstructions</p>
+            </div>
         </div>
     </div>
 
@@ -34,26 +55,16 @@
 </html>
 <script type="text/javascript">
     $(function() {
-        
-        var list = @Html.Raw(Json.Encode(Model.Recipe.Utensils));
-        var listAsString = [];
-        for (i = 0; i < list.length; i++) {
-            var item = list[i];
-            listAsString[i] = " " + item.UtensilName;
-        }
-
-        $(".utensil-list").text(listAsString.join());
-
         if ("@Model.IsCelsius".toLowerCase() == "true")
         {
             $("#temperature-display").text(
-                "@Model.Recipe.Celsius° Celsius"
+                "@Model.Recipe.Celsius° C"
             );
             $("#temperature-checkbox").prop( "checked", true );
         }
         else{
             $("#temperature-display").text(
-                "@Model.Recipe.Fahrenheit° Fahrenheit"
+                "@Model.Recipe.Fahrenheit° F"
             );
             $("#temperature-checkbox").prop( "checked", false );
         }
@@ -66,6 +77,13 @@
 
         if ($("#scale-input").val() == .5) {
             $("#scale-button-half").prop("checked", true).trigger("click");
+        }
+
+        if (@Model.Recipe.OvenHeat < 1 && @Model.Recipe.Utensils.Count < 1) {
+            $(".recipe-sidebar").hide();
+        }
+        else if (@Model.Recipe.OvenHeat < 1){
+            $(".oven-heat").hide();
         }
 
     });
@@ -116,12 +134,11 @@
     $('#temperature-checkbox').click(function() {
         if(document.getElementById('temperature-checkbox').checked) {
             $("#temperature-display").text(
-                "@Model.Recipe.Celsius° Celsius"
+                "@Model.Recipe.Celsius° C"
             )
         } else {
             $("#temperature-display").text(
-
-                "@Model.Recipe.Fahrenheit° Fahrenheit"
+                "@Model.Recipe.Fahrenheit° F"
             )
         }
     });

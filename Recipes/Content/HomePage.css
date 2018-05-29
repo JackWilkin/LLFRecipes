@@ -1,13 +1,11 @@
 ﻿
 h2 {
     color: white;
-    font-family: verdana;
     font-size: 300%;
 }
 
 p {
     color: white;
-    font-family: verdana;
     font-size: 20px;
 }
 
@@ -18,20 +16,15 @@ body {
 .home-page-body {
     background-image: url(/Content/Images/home-page.jpg);
     height: 100%;
-    width:100%;
+    width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .home-page-text {
-    float: left;
     max-width: 500px;
     padding: 20px;
-}
-
-button {
-    background-color: grey;
-    color: black;
-    border-color: grey;
+    text-align: center;
+    float: right;
 }

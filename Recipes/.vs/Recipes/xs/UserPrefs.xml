@@ -1,13 +1,8 @@
 ﻿<Properties StartupConfiguration="{3217702B-D977-441B-A748-10DCCF9922AC}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Content/Tools.css">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Content/RecipePage.css">
     <Files>
-      <File FileName="Content/HomePage.css" Line="21" Column="16" />
-      <File FileName="Views/Recipe/Display.cshtml" Line="37" Column="9" />
-      <File FileName="Views/Recipe/Home.cshtml" Line="11" Column="102" />
-      <File FileName="Views/Shared/_Layout.cshtml" Line="20" Column="22" />
-      <File FileName="Content/Site.css" Line="43" Column="39" />
-      <File FileName="Content/RecipePage.css" Line="40" Column="2" />
-      <File FileName="Content/Tools.css" Line="4" Column="24" />
+      <File FileName="Views/Recipe/Display.cshtml" Line="74" Column="1" />
+      <File FileName="Content/RecipePage.css" Line="43" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

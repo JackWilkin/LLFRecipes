@@ -1,26 +1,25 @@
 ﻿body {
-    margin:0;
-
+    margin: 0;
+    font-family: Verdana, Geneva, sans-serif;
 }
 html {
     height: 100%;
 }
 
 .body-content {
-    
+    width:100%;
     height: 100%;
 }
 
-ul {
+.navbar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #ADBED2;
-    width: 100%;
 }
 
-li {
+.navbar-item {
     width: 25%;
     float: left;
 }
